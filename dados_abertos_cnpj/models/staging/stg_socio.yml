@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: stg_socio
+    description: |
+      View que contém informações sobre os sócios das empresas brasileiras. 
+      Esta tabela é vinculada à tabela de empresas através do campo `cnpj_basico`, que representa 
+      os 8 primeiros dígitos do CNPJ e identifica a empresa matriz ou filial associada.
+      
+      Inclui informações detalhadas como tipo de sócio, CPF ou CNPJ (mascarado), 
+      qualificação, data de entrada na sociedade e outras informações relevantes.
+
+    columns:
+      - name: cnpj_basico
+        description: |
+          Primeiros 8 dígitos do CNPJ que identificam a empresa matriz ou filial. 
+          Este campo é a chave de relacionamento com a tabela de empresas.
+        data_tests:
+          - not_null
+
+      - name: identificador_socio
+        description: |
+          Código que identifica o tipo de sócio:
+          - 1: Pessoa Jurídica
+          - 2: Pessoa Física
+          - 3: Estrangeiro.
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3]
+
+      - name: nome_socio_razao_social
+        description: |
+          Nome do sócio (em caso de pessoa física) ou Razão Social (em caso de pessoa jurídica). 
+          Para sócios estrangeiros, corresponde ao nome ou razão social fornecida.
+
+      - name: cpf_cnpj_socio
+        description: |
+          CPF ou CNPJ do sócio. Este campo é mascarado para garantir privacidade 
+          e alinhamento às práticas de proteção de dados.
+
+      - name: qualificacao_socio
+        description: |
+          Código de qualificação do sócio, indicando a função ou papel na sociedade. 
+          Conforme tabela de qualificações disponibilizada no layout oficial.
+        data_tests:
+          - not_null
+
+      - name: data_entrada_sociedade
+        description: |
+          Data em que o sócio ingressou na sociedade, no formato AAAAMMDD.
+        data_tests:
+          - not_null
+
+      - name: pais
+        description: |
+          Código do país do sócio estrangeiro conforme tabela de países. 
+          Este campo é preenchido apenas para sócios estrangeiros.
+
+      - name: representante_legal
+        description: |
+          CPF ou CNPJ do representante legal do sócio, quando aplicável. 
+          Este campo é opcional.
+
+      - name: nome_do_representante
+        description: |
+          Nome completo do representante legal do sócio, quando aplicável.
+
+      - name: qualificacao_representante_legal
+        description: |
+          Código de qualificação do representante legal, indicando a função exercida na representação do sócio.
+          Conforme tabela de qualificações disponibilizada no layout oficial.
+
+      - name: faixa_etaria
+        description: |
+          Faixa etária do sócio. Pode incluir informações como: "Menor de 18 anos", 
+          "De 18 a 35 anos", "De 36 a 60 anos", "Acima de 60 anos". 
+          Este campo é preenchido apenas para sócios pessoas físicas.

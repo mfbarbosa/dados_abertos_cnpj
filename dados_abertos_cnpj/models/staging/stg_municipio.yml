@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_municipio
+    description: "View com informações da tabela de municípios da base de dados de CNPJ do Brasil."
+    columns:
+      - name: codigo
+        description: "Código do município."
+        data_tests:
+          - not_null
+      - name: descricao
+        description: "Descrição do município."
+        data_tests:
+          - not_null

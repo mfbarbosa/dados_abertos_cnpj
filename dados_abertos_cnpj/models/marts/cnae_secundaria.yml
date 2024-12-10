@@ -1,0 +1,22 @@
+models:
+  - name: cnae_secundaria
+    description: |
+      Tabela que expande a lista de códigos CNAE secundários do estabelecimento.
+      Cada linha representa um código CNAE secundário associado a um estabelecimento.
+    columns:
+      - name: cnpj
+        description: "CNPJ do estabelecimento."
+        data_tests:
+          - not_null
+      - name: ordem
+        description: "Ordem do CNAE secundário na lista original."
+        data_tests:
+          - not_null
+      - name: codigo_cnae
+        description: "Código CNAE secundário do estabelecimento."
+        data_tests:
+          - not_null
+      - name: cnae_desc
+        description: "Descrição do código CNAE secundário."
+        data_tests:
+          - not_null

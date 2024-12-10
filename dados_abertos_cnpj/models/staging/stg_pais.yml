@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_pais
+    description: "Modelo que extrai informações da tabela de países da base de dados de CNPJ do Brasil."
+    columns:
+      - name: codigo
+        description: "Código do país."
+        data_tests:
+          - not_null
+      - name: descricao
+        description: "Descrição do país."
+        data_tests:
+          - not_null

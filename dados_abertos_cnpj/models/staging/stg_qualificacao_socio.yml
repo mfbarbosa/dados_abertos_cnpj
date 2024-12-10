@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_qualificacao_socio
+    description: | 
+      Modelo que extrai informações da tabela de qualificações dos sócios da base de dados de CNPJ do Brasil. 
+      A qualificação do sócio identifica o papel ou posição que um sócio ocupa dentro de uma empresa, como administrador, diretor ou outro cargo relevante.
+    columns:
+      - name: codigo
+        description: "Código da qualificação do sócio."
+        data_tests:
+          - not_null
+      - name: descricao
+        description: "Descrição da qualificação do sócio."
+        data_tests:
+          - not_null

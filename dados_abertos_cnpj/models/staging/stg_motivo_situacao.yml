@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_motivo_situacao
+    description: "View da tabela de motivos de situação cadastral da base de dados de CNPJ do Brasil."
+    columns:
+      - name: codigo
+        description: "Código do motivo da situação cadastral."
+        data_tests:
+          - not_null
+      - name: descricao
+        description: "Descrição do motivo da situação cadastral."
+        data_tests:
+          - not_null

@@ -1,0 +1,17 @@
+models: 
+  - name: int_cnae_secundaria
+    description: |
+      Expande a lista de códigos CNAE secundários do estabelecimento que na base original estão
+      separados por vírgulas. Este modelo cria uma linha para cada CNAE secundário e relaciona com outras
+      tabelas com base no cnpj.
+    columns:
+      - name: cnpj
+        description: "CNPJ do estabelecimento."
+        data_tests:
+          - not_null
+
+      - name: ordem
+        description: "Ordem do CNAE secundário na lista original."
+        
+      - name: codigo_cnae
+        description: "Código CNAE secundário do estabelecimento."

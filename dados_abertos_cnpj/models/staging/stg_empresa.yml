@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: stg_empresa
+    description: | 
+      View com cadastro de empresas da base de dados de CNPJ do Brasil.
+
+      A chave que identifica a empresa é o CNPJ básico, que é composto pelos 8 primeiros dígitos do CNPJ.
+      Inclui informações cadastrais detalhadas como razão social, natureza jurídica e porte da empresa, com base nos registros disponibilizados pelo governo.
+    columns:
+      - name: cnpj_basico
+        description: "CNPJ básico da empresa (8 primeiros dígitos do CNPJ completo). Identificador único da empresa."
+        data_tests:
+          - unique
+          - not_null
+      - name: razao_social
+        description: "Nome empresarial oficial da empresa conforme cadastro no CNPJ. Aplicado TRIM para remoção de espaços."
+      - name: natureza_juridica
+        description: "Código da natureza jurídica da empresa conforme tabela oficial."
+      - name: qualificacao_responsavel
+        description: "Código da qualificação do responsável pela empresa, indicando sua função administrativa."
+      - name: capital_social
+        description: "Valor do capital social da empresa em reais (BRL)."
+      - name: porte_empresa
+        description: | 
+          Código do porte da empresa, podendo ser:
+          - 00: Não informado
+          - 01: Microempresa
+          - 03: Empresa de pequeno porte
+          - 05: Demais.
+      - name: porte_empresa_desc
+        description: "Descrição textual do porte da empresa, correspondente ao código de porte."
+      - name: ente_federativo_responsavel
+        description: | 
+          Identifica qual entidade federativa (como município, estado ou a União) supervisiona e regula a empresa. 
+          Este campo é preenchido apenas para entidades do grupo de natureza jurídica 1XXX."
+      - name: situacao_cadastral
+        description: | 
+          Código da situação cadastral da empresa, podendo ser:
+          - 01: Nula
+          - 02: Ativa
+          - 03: Suspensa
+          - 04: Inapta
+          - 08: Baixada.
+      - name: data_situacao_cadastral
+        description: "Data do evento relacionado à situação cadastral da empresa, no formato AAAAMMDD."
+      - name: opcao_pelo_simples
+        description: | 
+          Indicador da opção pelo regime tributário Simples Nacional:
+          - 0 ou Branco: Não optante
+          - 5 e 7: Optante
+          - 6 e 8: Excluído."
+      - name: data_opcao_pelo_simples
+        description: "Data de adesão ao Simples Nacional, no formato AAAAMMDD."
+      - name: data_exclusao_do_simples
+        description: "Data de exclusão do Simples Nacional, no formato AAAAMMDD."
+      - name: opcao_pelo_mei
+        description: | 
+          Indicador da opção pelo MEI (Microempreendedor Individual):
+          - S: Sim
+          - N: Não."
+      - name: situacao_especial
+        description: "Descrição da situação especial da empresa, se aplicável."
+      - name: data_situacao_especial
+        description: "Data de início da situação especial da empresa, no formato AAAAMMDD."

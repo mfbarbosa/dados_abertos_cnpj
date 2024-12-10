@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_simples
+    description: "View com informações do Simples Nacional da base de dados de CNPJ do Brasil."
+    columns:
+      - name: cnpj_basico
+        description: "CNPJ básico da empresa, composto pelos oito primeiros dígitos do CNPJ. Os zero a esquerda são ignorados."
+        data_tests:
+          - unique
+          - not_null
+      - name: opcao_pelo_simples
+        description: "Indica se a empresa optou pelo Simples Nacional."
+        data_tests:
+          - accepted_values: 
+              values: ["S", "N"]
+      - name: data_opcao_simples
+        description: "Data de opção pelo Simples Nacional."
+      - name: data_exclusao_simples
+        description: "Data de exclusão do Simples Nacional."
+      - name: opcao_mei
+        description: "Indica se a empresa optou pelo MEI."
+      - name: data_opcao_mei
+        description: "Data de opção pelo MEI."
+      - name: data_exclusao_mei
+        description: "Data de exclusão do MEI."

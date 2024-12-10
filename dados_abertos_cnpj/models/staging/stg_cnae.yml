@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_cnae
+    description: |
+      Modelo que extrai informações da tabela de CNAE. 
+      
+      CNAE (Classificação Nacional de Atividades Econômicas) é um sistema utilizado para categorizar as atividades econômicas desenvolvidas pelas empresas no Brasil.
+    columns:
+      - name: codigo
+        description: "Código do CNAE."
+        data_tests:
+          - unique
+          - not_null
+      - name: descricao
+        description: "Descrição do CNAE."
+        data_tests:
+          - not_null

@@ -1,0 +1,127 @@
+models:
+  - name: stg_estabelecimento
+    description: |
+      View com dados da tabela de estabelecimentos da base de dados de CNPJ do Brasil.
+
+      Relaciona com a tabela de empresas através do `cnpj_basico`, permitindo obter informações detalhadas sobre os estabelecimentos associados a cada empresa.
+    columns:
+      - name: cnpj_basico
+        description: |
+          Primeiros 8 dígitos do CNPJ que identificam a empresa matriz ou filial. 
+          Este campo é usado como chave de relacionamento com a tabela de empresas.
+        data_tests:
+          - not_null
+
+      - name: cnpj_ordem
+        description: "Ordem do CNPJ (4 dígitos que identificam um estabelecimento específico dentro da empresa)."
+        data_tests:
+          - not_null
+
+      - name: cnpj_dv
+        description: "Dígito verificador (DV) do CNPJ, usado para validação do número completo."
+
+      - name: cnpj_completo
+        description: |
+          CNPJ completo do estabelecimento, composto pelos campos `cnpj_basico`, 
+          `cnpj_ordem` e `cnpj_dv`. Este campo é único para cada estabelecimento.
+
+      - name: identificador_matriz_filial
+        description: |
+          Código que identifica se o estabelecimento é:
+          - 1: Matriz
+          - 2: Filial.
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2]
+
+      - name: identificador_matriz_filial_desc
+        description: "Descrição textual correspondente ao identificador de matriz ou filial."
+
+      - name: nome_fantasia
+        description: "Nome fantasia do estabelecimento, caso informado."
+
+      - name: situacao_cadastral
+        description: |
+          Código da situação cadastral do estabelecimento, podendo ser:
+          - 01: Nula
+          - 02: Ativa
+          - 03: Suspensa
+          - 04: Inapta
+          - 08: Baixada.
+      
+      - name: data_situacao_cadastral
+        description: "Data em que a situação cadastral foi definida, no formato AAAAMMDD."        
+
+      - name: motivo_situacao_cadastral
+        description: "Código que indica o motivo da situação cadastral."
+
+      - name: nome_cidade_exterior
+        description: "Nome da cidade no exterior, caso o estabelecimento esteja localizado fora do Brasil."
+
+      - name: pais
+        description: "Código do país onde o estabelecimento está localizado, conforme tabela oficial."
+
+      - name: data_inicio_atividade
+        description: "Data de início das atividades do estabelecimento, no formato AAAAMMDD."       
+
+      - name: cnae_fiscal_principal
+        description: "Código CNAE (Classificação Nacional de Atividades Econômicas) principal do estabelecimento."
+        
+      - name: cnae_fiscal_secundaria
+        description: |
+          Lista de códigos CNAE secundários do estabelecimento, separados por vírgulas, 
+          quando aplicável. Este campo pode conter até 99 CNAEs secundários.
+
+      - name: tipo_logradouro
+        description: "Tipo de logradouro do endereço do estabelecimento, como Rua, Avenida, etc."
+
+      - name: logradouro
+        description: "Nome do logradouro do endereço do estabelecimento."
+
+      - name: numero
+        description: |
+          Número do endereço do estabelecimento. Se o endereço não possuir número, 
+          o valor será 'S/N' (Sem Número).
+
+      - name: complemento
+        description: "Complemento do endereço do estabelecimento, caso aplicável."
+
+      - name: bairro
+        description: "Bairro do endereço do estabelecimento."
+
+      - name: cep
+        description: "Código de Endereçamento Postal (CEP) do endereço do estabelecimento."
+
+      - name: uf
+        description: "Sigla da Unidade Federativa (UF) onde o estabelecimento está localizado."      
+
+      - name: municipio
+        description: "Nome do município onde o estabelecimento está localizado."
+
+      - name: ddd_1
+        description: "DDD do telefone principal do estabelecimento."
+
+      - name: telefone_1
+        description: "Número do telefone principal do estabelecimento."
+
+      - name: ddd_2
+        description: "DDD do telefone secundário do estabelecimento."
+
+      - name: telefone_2
+        description: "Número do telefone secundário do estabelecimento, se aplicável."
+
+      - name: ddd_fax
+        description: "DDD do número de fax do estabelecimento, se aplicável."
+
+      - name: fax
+        description: "Número de fax do estabelecimento, se aplicável."
+
+      - name: correio_eletronico
+        description: "Endereço de e-mail do estabelecimento, se informado."
+
+      - name: situacao_especial
+        description: "Descrição da situação especial do estabelecimento, se aplicável."
+
+      - name: data_situacao_especial
+        description: "Data da situação especial do estabelecimento, no formato AAAAMMDD."

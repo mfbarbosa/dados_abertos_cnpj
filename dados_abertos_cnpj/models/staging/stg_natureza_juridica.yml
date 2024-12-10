@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_natureza_juridica
+    description: | 
+      View que extrai informações da tabela de natureza jurídica da base de dados de CNPJ do Brasil.
+      
+       A natureza jurídica é uma classificação utilizada para identificar a forma legal de uma entidade perante a legislação, determinando direitos, deveres, estrutura organizacional e responsabilidade dos sócios ou associados. 
+       
+       Exemplos de naturezas jurídicas incluem sociedades limitadas (LTDA), sociedades anônimas (SA), associações e fundações."
+    columns:
+      - name: codigo
+        description: "Código da natureza jurídica."
+        data_tests:
+          - not_null
+      - name: descricao
+        description: "Descrição da natureza jurídica."
+        data_tests:
+          - not_null

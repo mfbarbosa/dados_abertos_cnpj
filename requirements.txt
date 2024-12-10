@@ -1,0 +1,5 @@
+azure-storage-blob==12.24.0
+dbt-core==1.8.9
+dbt-duckdb==1.9.0
+pandas==2.2.3
+pyarrow==18.1.0

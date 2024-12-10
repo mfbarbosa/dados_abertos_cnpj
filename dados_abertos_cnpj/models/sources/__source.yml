@@ -1,0 +1,36 @@
+version: 2
+sources:
+  - name: external_source
+    meta:
+      external_location: "read_parquet('azure://cnpj/{name}.parquet')"
+    tables:
+      - name: simples
+        config:
+          external_location: "read_parquet('azure://cnpj/*SIMPLES*.parquet')"
+      - name: cnae
+        config:
+          external_location: "read_parquet('azure://cnpj/*CNAE*.parquet')"
+      - name: motivo_situacao
+        config:
+          external_location: "read_parquet('azure://cnpj/*MOTI*.parquet')"      
+      - name: municipio
+        config:
+          external_location: "read_parquet('azure://cnpj/*MUNIC*.parquet')"
+      - name: natureza_juridica
+        config:
+          external_location: "read_parquet('azure://cnpj/*NATJU*.parquet')"
+      - name: pais
+        config:
+          external_location: "read_parquet('azure://cnpj/*PAIS*.parquet')"
+      - name: qualificacao_socio
+        config:
+          external_location: "read_parquet('azure://cnpj/*QUALS*.parquet')"
+      - name: socio
+        config:
+          external_location: "read_parquet('azure://cnpj/*SOCIO*.parquet')"
+      - name: empresa
+        config:
+          external_location: "read_parquet('azure://cnpj/*EMPRE*.parquet')"
+      - name: estabelecimento
+        config:
+          external_location: "read_parquet('azure://cnpj/*ESTABELE*.parquet')"

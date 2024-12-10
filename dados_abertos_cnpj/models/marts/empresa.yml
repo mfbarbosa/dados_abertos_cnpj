@@ -1,0 +1,43 @@
+models:
+  - name: empresa
+    description: |
+      Tabela de empresas registradas, com informações cadastrais básicas.
+    columns:
+      - name: cnpj
+        description: "Número do CNPJ da empresa, sem máscara."
+        data_tests:
+          - not_null
+          - unique
+      - name: razao_social
+        description: "Razão social da empresa."
+        data_tests:
+          - not_null
+      - name: nome_fantasia
+        description: "Nome fantasia da empresa, caso informado."
+      - name: identificador_matriz_filial_desc
+        description: "Descrição que identifica matriz ou filial."
+      - name: natureza_juridica_desc
+        description: "Descrição correspondente à natureza jurídica da empresa."
+      - name: qualificacao_responsavel_desc
+        description: "Descrição correspondente à qualificação do responsável pela empresa."
+      - name: capital_social
+        description: "Capital social da empresa."
+      - name: porte_empresa_desc
+        description: "Descrição do porte da empresa."
+      - name: cnae_principal
+        description: "Código CNAE principal da empresa."
+      - name: cnae_principal_desc
+        description: "Descrição do CNAE principal da empresa."
+      - name: municipio_desc
+        description: "Nome do município onde a empresa está localizada."
+      - name: uf
+        description: "Código da unidade federativa onde a empresa está localizada."
+      - name: data_inicio_atividade
+        description: "Data de início das atividades da empresa."
+      - name: data_situacao_cadastral
+        description: "Data da situação cadastral da empresa."
+      - name: situacao_cadastral_desc
+        description: "Descrição da situação cadastral da empresa."
+      - name: motivo_situacao_cadastral_desc
+        description: "Descrição do motivo da situação cadastral da empresa."
+
